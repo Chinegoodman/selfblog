@@ -1,6 +1,6 @@
 <template>
     <div class="otherwebsite">
-        <a v-for="(item,index) in websitesdata" :key="index" :href="item.url" target="_blank">
+        <a class="target_a" v-for="(item,index) in websitesdata" :key="index" :href="item.url" target="_blank">
             <img v-if="item.icon" :src="item.icon" :alt="item.name">
             <span>{{item.name}}</span>
         </a>
