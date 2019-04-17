@@ -1,0 +1,47 @@
+@bgcolor:#fafafa;
+@white:#fff;
+
+@bordercolor:rgba(0,0,0,.0975);
+
+@black:rgb(38, 38, 38);
+@blue:rgb(0, 53, 105);
+@linkcolor: #999;
+@linkcoloractive: #0035679;
+
+@fontsizedefault:14px;
+@fontsizebig:28px;
+@fontsizesmall:12px;
+
+
+@transtime:0.3s;
+
+@hoverbgcolorl:linear-gradient(30deg,#f96,#ace);
+@hoverbgcolorr:radial-gradient(#f96,#ace);
+
+*{
+  padding: 0;
+  margin: 0;
+}
+a{
+  text-decoration: none;
+  font-style: italic;
+  font-weight: 600;
+  background-color: @white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid @bordercolor;
+  font-size: @fontsizedefault;
+  color: @linkcoloractive;
+  margin: 0 4px;
+  &:active{
+    color: @linkcolor;
+  }
+  display: inline-block;
+  //line-height: 1.4em;
+  height: 1.4em;
+
+  img,span{
+    height: 100%;
+    float: left;
+  }
+}

@@ -1,18 +1,38 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="wrap">
+        <div class="left">
+            <showtime></showtime>
+            <usefulwebsite></usefulwebsite>
+            <otherwebsite></otherwebsite>
+        </div>
+        <div class="right">
+            <router-view></router-view>
+
+        </div>
+
+        <!-- 音乐播放模块-->
+        <newmusicbox></newmusicbox>
+        <!-- 登录用户才有的权限,通过vuex去做登陆判断后来控制他是否显示-->
+        <homeordistribution></homeordistribution>
+        <!--反馈模块-->
+        <feedback></feedback>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+    import otherwebsite from './../components/otherwebsite'
+    import usefulwebsite from './../components/usefulwebsite'
+    import newmusicbox from './../components/selfcommon/newmusicbox'
+    import showtime from './../components/selfcommon/showtime'
+    import homeordistribution from './../components/homeordistribution'
+    import feedback from './../components/feedback'
+    export default {
+        name: "Home",
+        components:{homeordistribution,feedback,showtime,usefulwebsite,newmusicbox,otherwebsite}
+    }
 </script>
+
+<style scoped lang="less">
+
+</style>
