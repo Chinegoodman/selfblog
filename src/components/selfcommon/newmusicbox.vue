@@ -48,7 +48,7 @@
                   ]
                 },
                 musicboxdata:{
-                    musicboxstatus:true,
+                    musicboxstatus:false,
                     musicstatus:true,
                     // currentname:'偏爱',
                     // currentsinger:'张芸京',
@@ -204,8 +204,9 @@
             font-size: @fontsizesmall;
             position: absolute;
             bottom: 7em;
-            left: 0;
-            width: 90%;
+            left: 1em;
+            width: 93%;
+            padding: 0 1em;
             background: @white;
             border: 1px solid @bordercolor;
             &:after{
@@ -217,7 +218,7 @@
                 border-top-color: @bordercolor;
                 position: absolute;
                 top: 100%;
-                left: 7%;
+                left: 2%;
             }
             .title{
                 font-weight: 600;
@@ -239,18 +240,20 @@
                     box-sizing: border-box;
                 }
                 p:nth-child(1){
-                    width: 14%;
+                    width: 16%;
                     border-right: 1px solid @bordercolor;
                     border-bottom: 1px solid @bordercolor;
+                    border-left: 1px solid @bordercolor;
                 }
                 p:nth-child(2){
-                    width: 43%;
+                    width: 42%;
                     border-right: 1px solid @bordercolor;
                     border-bottom: 1px solid @bordercolor;
                 }
                 p:nth-child(3){
-                    width: 43%;
+                    width: 42%;
                     border-bottom: 1px solid @bordercolor;
+                    border-right: 1px solid @bordercolor;
                 }
             }
         }

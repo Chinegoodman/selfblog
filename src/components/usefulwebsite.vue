@@ -14,34 +14,19 @@
         name: "usefulwebsite",
         data(){
             return{
-                websitesdata:[
-                    {
-                        url:'https://www.baidu.com',
-                        name:'百度',
-                        icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'https://www.baidu.com',
-                        name:'百度',
-                        icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'https://www.baidu.com',
-                        name:'百度',
-                        icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'https://www.baidu.com',
-                        name:'百度',
-                        icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'https://www.baidu.com',
-                        name:'百度',
-                        icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                ]
+                websitesdata:[],
             }
+        },
+        methods:{
+            getsetdata(){
+                let _this=this;
+                this.axios.get('/usefulwebsite.json').then((data)=>{
+                    _this.websitesdata=data.data.usefulwebsitearr
+                })
+            }
+        },
+        mounted() {
+            this.getsetdata()
         }
     }
 </script>
@@ -62,8 +47,11 @@
         }
         a{
             float: left;
-            margin-bottom: 5px;
+            margin-bottom: 0.5px;
             margin-top: 5px;
+            img{
+                margin-right: 1em;
+            }
         }
     }
 </style>

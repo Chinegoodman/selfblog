@@ -1,10 +1,12 @@
 <template>
     <div class="otherwebsite">
         <div class="otherwebsitetitle">老版本</div>
-        <a class="target_a" v-for="(item,index) in websitesdata" :key="index" :href="item.url" target="_blank">
-            <img v-if="item.icon" :src="item.icon" :alt="item.name">
-            <span>{{item.name}}</span>
-        </a>
+        <div class="linksbox">
+            <a class="target_a" v-for="(item,index) in websitesdata" :key="index" :href="item.url" target="_blank">
+                <img v-if="item.icon" :src="item.icon" :alt="item.name">
+                <span>{{item.name}}</span>
+            </a>
+        </div>
         <div style="clear: both;"></div>
     </div>
 </template>
@@ -16,73 +18,13 @@
             return{
                 websitesdata:[
                     {
-                        url:'http://www.ooo0o.com',
-                        name:'老款',
+                        url:'http://www.bufulaidawo.com',
+                        name:'N年前的备份',
                         // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
                     },
                     {
-                        url:'http://www.ooo0o.com',
-                        name:'老款',
-                        // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'http://www.ooo0o.com',
-                        name:'老款',
-                        // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'http://www.ooo0o.com',
-                        name:'老款',
-                        // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'http://www.ooo0o.com',
-                        name:'老款',
-                        // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'http://www.ooo0o.com',
-                        name:'老款',
-                        // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'http://www.ooo0o.com',
-                        name:'老款',
-                        // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'http://www.ooo0o.com',
-                        name:'老款',
-                        // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'http://www.ooo0o.com',
-                        name:'老款',
-                        // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'http://www.ooo0o.com',
-                        name:'老款',
-                        // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'http://www.ooo0o.com',
-                        name:'老款',
-                        // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'http://www.ooo0o.com',
-                        name:'老款',
-                        // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'http://www.ooo0o.com',
-                        name:'老款',
-                        // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
-                    },
-                    {
-                        url:'http://www.ooo0o.com',
-                        name:'老款',
+                        url:'http://www.ooo0o.com/old',
+                        name:'ooo0o老版本',
                         // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
                     },
                 ]
@@ -105,16 +47,23 @@
         transform: translateX((3/94)*100%);
         .otherwebsitetitle{
             float: left;
-            width: 1.3em;
-            padding: 5px 5px;
+            /*width: 1.3em;*/
+            padding: 0.3em;
             border-right: 1px solid @bordercolor;
-            border-bottom: 1px solid @bordercolor;
             color: @linkcolor;
+            line-height: 3em;
         }
-        a{
-            margin-top: 10px;
-            color: @linkcolor;
-            font-size: @fontsizesmall;
+        .linksbox{
+            padding-left: 2.1em;
+            min-height: 3.6em;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            a{
+                /*margin-top: 10px;*/
+                color: @linkcolor;
+                font-size: @fontsizesmall;
+            }
         }
     }
 </style>
