@@ -11,6 +11,8 @@
 </template>
 
 <style lang="less">
+@import "./assets/reset.css";
+@import "./assets/common.less";
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -20,9 +22,20 @@
 }
 
 
-@import "./assets/common.less";
+html{
+  width: 100%;
+  height: 100%;
+}
 body{
   background: @bgcolor;
+  width: 100%;
+  height: 100%;
+  min-width: 1200px;
+}
+#app{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 /*#nav {*/
