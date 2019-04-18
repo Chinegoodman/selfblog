@@ -1,12 +1,12 @@
 <template>
     <div class="wrap">
-        <div class="left" :class="{widthzero:!leftstatus}">
+        <div class="left" :class="{widthzero:!leftstatus}" @mouseover="lefthidebgnstatus=true" @mouseout="lefthidebgnstatus=false">
             <showtime></showtime>
             <usefulwebsite></usefulwebsite>
             <otherwebsite></otherwebsite>
 
             <div v-if="!leftstatus" class="leftshowbgn" @click="leftstatus=!leftstatus"></div>
-            <div v-if="leftstatus" class="lefthidebgn" @click="leftstatus=!leftstatus"></div>
+            <div v-if="leftstatus" :class="{active:lefthidebgnstatus}" class="lefthidebgn" @click="leftstatus=!leftstatus"></div>
         </div>
         <div class="right" :class="{widthbigger:!leftstatus}">
             <router-view></router-view>
@@ -39,7 +39,8 @@
         components:{homeordistribution,feedback,showtime,usefulwebsite,newmusicbox,otherwebsite,personbtn},
         data(){
             return{
-                leftstatus:true
+                leftstatus:true,
+                lefthidebgnstatus:false
             }
         }
     }
@@ -81,6 +82,10 @@
             .lefthidebgn{
                 border-right-color: @bordercolor;
                 right: 0px;
+                display: none;
+                &.active{
+                    display: block;
+                }
             }
         }
         .right{
