@@ -269,7 +269,7 @@
 </script>
 
 <style scoped lang="less">
-    @import url('./../../assets/common');
+    @import url('./../../../public/common');
     //音乐模块
     @shadow: 0 0 5px #EBEBEB;
     @border:1px solid #E1E1E1;

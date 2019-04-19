@@ -20,12 +20,17 @@
         <!-- 音乐播放模块-->
         <newmusicbox></newmusicbox>
 
-<!--        用户登录及推出按钮-->
-        <personbtn></personbtn>
+<!--        用户登录及退出按钮-->
+        <personbtnbox></personbtnbox>
+        用户登录
+        <loginregist></loginregist>
         <!-- 登录用户才有的权限,通过vuex去做登陆判断后来控制他是否显示-->
         <homeordistribution></homeordistribution>
         <!--反馈模块-->
         <feedback></feedback>
+
+<!--        添加一个蒙板 组件-->
+        <mengban :mengbanstatus="mengbanstatus"></mengban>
     </div>
 </template>
 
@@ -37,10 +42,12 @@
     import showtime from './../components/selfcommon/showtime'
     import homeordistribution from './../components/homeordistribution'
     import feedback from './../components/feedback'
-    import personbtn from './../components/personbtn'
+    import personbtnbox from './../components/personbtnbox'
+    import loginregist from './../components/loginregist'
     export default {
+        props:['mengbanstatus'],
         name: "Home",
-        components:{homeordistribution,feedback,showtime,usefulwebsite,newmusicbox,otherwebsite,personbtn},
+        components:{homeordistribution,feedback,showtime,usefulwebsite,newmusicbox,otherwebsite,personbtnbox,loginregist},
         data(){
             return{
                 leftstatus:true,
@@ -52,7 +59,7 @@
 </script>
 
 <style scoped lang="less">
-    @import "./../assets/common";
+    @import "./../../public/common";
     .wrap{
         height: 100%;
         width: 100%;

@@ -120,7 +120,7 @@
   }
 </script>
 <style lang="less" scoped>
-    @import "./../assets/common.less";
+    @import "./../../public/common.less";
     .hoverbgcolorl{
         background: @hoverbgcolorl
     }

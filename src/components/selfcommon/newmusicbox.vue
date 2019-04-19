@@ -70,7 +70,7 @@
             getsetmusicdata:function () {
                 let _this=this;
                 this.changevoice('5%');
-                this.axios.get('/musiclist.json').then((data)=>{
+                this.axios.get('http://www.ooo0o.com/json/musiclist.json').then((data)=>{
                     _this.musicdata = data.data.listarr;
                     let randomnum = data.data.listarr.length;
                     let randomindex = parseInt(Math.random()*randomnum);
@@ -145,7 +145,7 @@
 </script>
 
 <style scoped lang="less">
-    @import "./../../assets/common";
+    @import "./../../../public/common";
     .newmusicbox{
         audio.musicaudio{
             display: none;

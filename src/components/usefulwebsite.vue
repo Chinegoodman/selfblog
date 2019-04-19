@@ -20,7 +20,7 @@
         methods:{
             getsetdata(){
                 let _this=this;
-                this.axios.get('/usefulwebsite.json').then((data)=>{
+                this.axios.get('http://www.ooo0o.com/json/usefulwebsite.json').then((data)=>{
                     _this.websitesdata=data.data.usefulwebsitearr
                 })
             }
@@ -32,14 +32,14 @@
 </script>
 
 <style scoped lang="less">
-    @import "./../assets/common";
+    @import "./../../public/common";
     .usefulwebsite{
         padding: 15px 15px;
         border: 1px solid @bordercolor;
         /*width: 300px;*/
         width: 94%;
         box-sizing: border-box;
-        margin: 110px auto;
+        margin: 8vw auto;
         border-radius: 5px;
         background: @white;
         h4{

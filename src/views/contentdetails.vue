@@ -7,7 +7,7 @@
                 <li v-for="(item,index) in itemdata.tags" :key="index">{{item}}</li>
             </ul>
             <div class="contentdetails">
-                <div @click="godetail(itemdata.id)">&nbsp;&nbsp;&nbsp;&nbsp;{{itemdata.contentall}}</div>
+                <div>{{itemdata.contentall}}</div>
             </div>
             <div class="author">by: <span>{{itemdata.author}}</span></div>
         </div>
@@ -25,7 +25,7 @@
         methods:{
             getsetdata(){
                 let _this=this;
-                this.axios.get('/contentdetails.json',{
+                this.axios.get('http://www.ooo0o.com/json/contentdetails.json',{
                     params:{
                         listid:_this.$route.params.id
                     }
@@ -41,7 +41,7 @@
 </script>
 
 <style scoped lang="less">
-    @import "./../assets/common";
+    @import "./../../public/common";
     .contentdetails{
         width:@rightwidth;
         font-size: @fontsizedefault;

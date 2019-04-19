@@ -32,7 +32,7 @@
             },
             getsetdata(){
                 let _this=this;
-                this.axios.get('/contentslist.json',{
+                this.axios.get('http://www.ooo0o.com/json/contentslist.json',{
                     params:{
                         pagenumber:_this.currentpagenum
                     }
@@ -57,7 +57,7 @@
 </script>
 
 <style scoped lang="less">
-    @import "./../assets/common";
+    @import "./../../public/common";
     .contents{
         width:@rightwidth;
         font-size: @fontsizedefault;

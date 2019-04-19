@@ -76,7 +76,7 @@
 </script>
 
 <style scoped lang="less">
-    @import "./../../assets/common";
+    @import "./../../../public/common";
     .showtime{
         padding: 15px 15px;
         border: 1px solid @bordercolor;

@@ -1,7 +1,7 @@
 <template>
     <div class="makenewcontent">
         <div class="submitbox">
-            <div class="title">标题:<input maxlength="" type="text" v-model="submitdata.title"></div>
+            <div class="title clearfloat"><span>标题:</span><input maxlength="" type="text" v-model="submitdata.title"></div>
 
             <tags @getnewtagarr="getnewtagarr" :tagsdata="tagsdata"></tags>
 
@@ -142,7 +142,7 @@
 </script>
 
 <style scoped lang="less">
-    @import "./../assets/common";
+    @import "./../../public/common";
     .makenewcontent{
         width:@rightwidth;
         font-size: @fontsizedefault;
@@ -168,13 +168,23 @@
                 margin-bottom: 1em;
                 cursor: pointer;
                 line-height: 1.2em;
+                span{
+                    float: left;
+                    width: 10%;
+                    line-height: 32px;
+                    border: 1px solid @bordercolor;
+                    border-right: none;
+                    text-align: center;
+                    font-weight: 600;
+                }
                 input{
+                    float: left;
                     outline: none;
                     border-color:@bordercolor;
-                    margin-left: 0.4em;
                     padding: 0 4px;
-                    line-height: 1.5em;
-                    width: 47em;
+                    line-height: 30px;
+                    width: calc( 90% - 1px ) ;
+                    box-sizing: border-box;
                 }
             }
             .shortcontentbox{
@@ -190,7 +200,7 @@
                     border-right: none;
                 }
                 textarea{
-                    width: calc( 80% - 2px );
+                    width: calc( 90% - 2px );
                     height: 100px;
                     border-color:@bordercolor;
                     padding: 10px;
