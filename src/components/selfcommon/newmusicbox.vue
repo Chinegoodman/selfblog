@@ -49,7 +49,7 @@
                 },
                 musicboxdata:{
                     musicboxstatus:false,
-                    musicstatus:true,
+                    musicstatus:false,
                     // currentname:'偏爱',
                     // currentsinger:'张芸京',
                     // musicurl:'http://ooo0o.com/7dbc5201904151803365420.mp3',
@@ -79,6 +79,7 @@
                     _this.musicboxdata.currentsinger = _this.musicdata[randomindex].singer;
                     _this.musicboxdata.musicurl = _this.musicdata[randomindex].musicurl;
                     _this.musicboxdata.musicindex = randomindex;
+                    setTimeout(this.pausemusic,10)
                 })
             },
             playmusic(){

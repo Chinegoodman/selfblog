@@ -1,7 +1,17 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <div class="hoverbgcolorl">
+      <tags @getnewtagarr="getnewtagarr" :tagsdata="tagsdata"></tags>
+      <div class="edit_container">
+          <quill-editor
+                  v-model="content"
+                  ref="myQuillEditor"
+                  :options="editorOption"
+                  @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
+                  @change="onEditorChange($event)">
+          </quill-editor>
+          <button v-on:click="saveHtml">保存</button>
+      </div>
+      <div class="hoverbgcolorl">
         <p>daf</p>
         <p>daf</p>
         <p>daf</p>
@@ -37,6 +47,16 @@
     },
     data(){
         return{
+            // quilleditor数据
+            content: `<p>hello world</p>`,
+            editorOption: {},
+
+            // tags标签组件
+            tagsdata:{
+                tagsstyles:{
+                },
+                tagsarr:[]
+            },
 
 
             // 翻页组件
@@ -65,7 +85,28 @@
             }
         }
     },
+    computed:{
+        // quilleditor配置
+        editor() {
+            return this.$refs.myQuillEditor.quill;
+        }
+    },
     methods:{
+        // tags标签组件
+        getnewtagarr(val){
+            this.tagsdata.tagsarr = val;
+        },
+
+        // quilleditor配置
+        onEditorReady(editor) { // 准备编辑器
+        },
+        onEditorBlur(){}, // 失去焦点事件
+        onEditorFocus(){}, // 获得焦点事件
+        onEditorChange(){}, // 内容改变事件
+        saveHtml:function(event){
+            alert(this.content);
+        },
+
         // 翻页组件
         getchangenumber(pagenumber){
             // console.log('父级获取到了')

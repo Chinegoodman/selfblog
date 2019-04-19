@@ -9,8 +9,12 @@
             <div v-if="leftstatus" :class="{active:lefthidebgnstatus}" class="lefthidebgn" @click="leftstatus=!leftstatus"></div>
         </div>
         <div class="right" :class="{widthbigger:!leftstatus}">
-            <router-view></router-view>
-
+            <div class="right_toptitle">{{right_toptitle}}</div>
+            <div class="rightwrap">
+                <div class="righthiddenscroll">
+                    <router-view></router-view>
+                </div>
+            </div>
         </div>
         <div style="clear: both;"></div>
         <!-- 音乐播放模块-->
@@ -40,7 +44,8 @@
         data(){
             return{
                 leftstatus:true,
-                lefthidebgnstatus:false
+                lefthidebgnstatus:false,
+                right_toptitle:'来点内容,安排',
             }
         }
     }
@@ -96,7 +101,33 @@
 
             transition: width @transtimeslow linear;
             &.widthbigger{
-                width: 100vw;
+                width: 100%;
+            }
+            font-size: @fontsizebig;
+            .right_toptitle{
+                font-weight: 500;
+                background-color: @white;
+                border: 1px solid @bordercolor;
+                width: @rightwidth;
+                padding: 0.5em 0;
+                border-radius: 0.4em;
+                margin: 1em auto;
+                line-height: 32px;
+            }
+            .rightwrap{
+                width: 100%;
+                height: calc(100% - 62px - 56px);
+                /*background-color: #ccc;*/
+                overflow: hidden;
+
+                .righthiddenscroll{
+                    width: calc( 100% + 20px );
+                    height: 100%;
+                    border-top: 0.5em solid transparent;
+                    border-bottom: 0.5em solid transparent;
+                    box-sizing: border-box;
+                    overflow-y: scroll;
+                }
             }
         }
     }

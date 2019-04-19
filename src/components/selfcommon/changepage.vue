@@ -14,10 +14,10 @@
             <li @click="changeclick(activepagenumber_04)" v-if="activepagenumber_04!=-1">{{activepagenumber_04}}</li>
             <li v-if="appendpointstatus">...</li>
             <li @click="golastpage">最后一页</li>
-            <div style="clear:both;"></div>
+<!--            <div style="clear:both;"></div>-->
         </ul>
-        <div style="clear:both"></div>
         <p>共{{pagesallnumber}}页</p>
+        <div style="clear:both"></div>
     </div>
 </template>
 
@@ -450,26 +450,42 @@
 
 <style scoped>
     .psf-changepagebox{
-
+        font-size: 14px;
+        padding-left: 10em;
     }
     .psf-changpagecontainer{
         list-style: none;
-        margin: 0;
+        margin: 0 0 1em;
         padding: 0;
-        display: inline-block;
+        /*display: inline-block;*/
+        float: left;
+
     }
     .psf-changpagecontainer>li{
         float: left;
-        height: 20px;
-        padding: 5px 10px;
-        background-color: #ccc;
-        margin-right:5px;
+        line-height: 1.6em;
+        padding: 0 1em;
+        background-color: rgba(0,0,0,.0975);
+        margin-right:0.4em;
+        border-radius: 0.4em;
+        cursor: pointer;
     }
     .psf-changpagecontainer>li:last-child{
         margin-right: 0;
     }
     .psf-changpagecontainer>li.activepagenumberli{
-        background-color: #000;
-        color: #fff;
+        background-color: rgb(38, 38, 38);
+        color: #fafafa;
+    }
+    .psf-changepagebox>p{
+        font-size: 12px;
+        color: rgb(38, 38, 38);
+        background: #fff;
+        border: 1px solid rgba(0,0,0,.0975);
+        display: inline-block;
+        line-height: 1.6em;
+        padding: 0 0.5em;
+        border-radius: 0.4em;
+        float: left;
     }
 </style>
