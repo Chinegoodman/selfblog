@@ -52,11 +52,7 @@
             editorOption: {},
 
             // tags标签组件
-            tagsdata:{
-                tagsstyles:{
-                },
-                tagsarr:[]
-            },
+            tagsdata:[],
 
 
             // 翻页组件
