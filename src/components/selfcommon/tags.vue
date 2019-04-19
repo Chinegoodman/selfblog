@@ -1,7 +1,7 @@
 <template>
     <div class="tagsbox">
         <input type="text" placeholder="输入自定义标签" v-model="newtag"><i class="addtagbtn" style="cursor:pointer;" @click="addtag()">添加</i>
-        <span title="点击红点删除标签" v-for="(item,index) in tagsdata.tagsarr" :key="index">{{item.tag}}<i class="deletetagbtn" style="cursor:pointer;" @click="deletetag(index)"></i></span>
+        <span title="点击红点删除标签" v-for="(item,index) in tagsdata" :key="index">{{item}}<i class="deletetagbtn" style="cursor:pointer;" @click="deletetag(index)"></i></span>
         <div style="clear: both;"></div>
     </div>
 </template>
@@ -15,7 +15,7 @@
         data() {
             return {
                 newtag:'',
-                newtagarr:[],
+                // newtagarr:[],
             }
         },
         methods: {
@@ -23,12 +23,12 @@
                 let _this=this;
                 if(!_this.newtag)return;
                 // debugger;
-                this.tagsdata.tagsarr.unshift({tag:this.newtag});
+                this.tagsdata.unshift(this.newtag);
                 _this.newtag='';
-                this.$emit('getnewtagarr',this.tagsdata.tagsarr);
+                this.$emit('getnewtagarr',this.tagsdata);
             },
             deletetag(index){
-                this.tagsdata.tagsarr.splice(index,1);
+                this.tagsdata.splice(index,1);
             }
         },
         mounted() {

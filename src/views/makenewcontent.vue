@@ -38,19 +38,14 @@
             return{
                 submitdata:{
                     title:'',
-                    tagsarr:[],
+                    // tagsarr:[],
                     shortcontent:'',
                     contentall:'',
                     author:''
                 },
 
                 // tags标签组件
-                tagsdata:{
-                    tagsstyles:{
-                    },
-                    tagsarr:[]
-                },
-
+                tagsdata:[],
 
                 // quilleditor数据
                 content: `<p>你好啊.</p>`,
@@ -95,9 +90,9 @@
         methods:{
             // tags标签组件
             getnewtagarr(val){
-                this.tagsdata.tagsarr = val;
+                // this.tagsdata.tagsarr = val;
 
-                this.submitdata.tagsarr = val;
+                this.submitdata.tags = val;
             },
 
             // quilleditor配置
@@ -116,7 +111,7 @@
                     alert('请填写标题');
                     return;
                 }
-                if(_this.submitdata.tagsarr.length<=0){
+                if(_this.submitdata.length<=0){
                     alert('请至少编辑与文章的相关一个标签');
                     return;
                 }
