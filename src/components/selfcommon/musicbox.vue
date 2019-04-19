@@ -183,7 +183,7 @@
                         _this.musicjdtpoint.width = musiccurrentTime/musiclong*100 + '%';
                         _this.musicvoicepoint.left = musicvolume*100 + '%';
                         // _this.currenttimedurationtime();
-                        // TODO: 显示的时间总时长有bug
+                        // TODO: 显示的时间总时长bug
                     },1000)
                 }else {
                     clearInterval()
