@@ -9,6 +9,7 @@
 </template>
 
 <script>
+    // todo:设置默认状态为未登录,同时配置vuex
     import eventbus from './../eventbus'
     export default {
         name: "personbtnbox",
