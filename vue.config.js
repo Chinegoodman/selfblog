@@ -1,7 +1,7 @@
 module.exports = {
     publicPath:'./',
     devServer: {
-        open: true,
+        open: false,
         host: 'localhost',
         port: 8080,
         https: false,
@@ -23,13 +23,13 @@ module.exports = {
                     '^/newsapi':''
                 }
             },
-            '/json': {
-                target: 'http://www.ooo0o.com/json',
+            '/ooo0oapi': {
+                target: 'http://www.ooo0o.com',
                 changeOrigin: true,
                 ws:true,
-                // pathRewrite:{
-                //     '^/json':''
-                // }
+                pathRewrite:{
+                    '^/ooo0oapi':''
+                }
             },
         }
     }

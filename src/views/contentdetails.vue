@@ -41,7 +41,7 @@
 </script>
 
 <style scoped lang="less">
-    @import "./../../public/common";
+    @import "./../assets/common";
     .contentdetails{
         width:@rightwidth;
         font-size: @fontsizedefault;

@@ -145,7 +145,7 @@
 </script>
 
 <style scoped lang="less">
-    @import "./../../../public/common";
+    @import "./../../assets/common";
     .newmusicbox{
         audio.musicaudio{
             display: none;

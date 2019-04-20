@@ -30,7 +30,7 @@
 </script>
 
 <style lang="less" scoped>
-    @import "./../../../public/common";
+    @import "./../../assets/common";
     .mengbanbox{
         position: fixed;
         width: 100%;

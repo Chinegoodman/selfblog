@@ -37,7 +37,7 @@
 </script>
 
 <style scoped lang="less">
-    @import "../../public/common.less";
+    @import "./../assets/common.less";
     .feedback{
         position: fixed;
         right: -500px;

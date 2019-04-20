@@ -66,7 +66,7 @@
 </script>
 
 <style scoped lang="less">
-    @import "./../../public/common";
+    @import "./../assets/common";
     .loginregistbox{
 
         /*loginregist参照的定位对象为wrap必要时需要给wrap设置relative*/

@@ -2,13 +2,15 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import axios from 'axios'
+// import axios from 'axios'
 
 // 自定义尝试eventbus
 import eventbus from '@/eventbus'
 Vue.use(eventbus);
 
-Vue.prototype.axios = axios
+
+import './api/index'
+// Vue.prototype.axios = axios
 import './components/selfcommon'
 
 // quill

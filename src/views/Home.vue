@@ -59,7 +59,7 @@
 </script>
 
 <style scoped lang="less">
-    @import "./../../public/common";
+    @import "./../assets/common";
     .wrap{
         height: 100%;
         width: 100%;

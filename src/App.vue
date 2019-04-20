@@ -11,8 +11,8 @@
 </template>
 
 <style lang="less">
-@import "./../public/reset.css";
-@import "./../public/common.less";
+@import "./assets/reset.css";
+@import "./assets/common.less";
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

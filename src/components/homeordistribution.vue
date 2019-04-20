@@ -23,7 +23,7 @@
 </script>
 
 <style scoped lang="less">
-    @import "../../public/common";
+    @import "../assets/common";
     .homeordistributionbox{
         position: fixed;
         right: -50px;

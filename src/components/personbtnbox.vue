@@ -38,7 +38,7 @@
 </script>
 
 <style scoped lang="less">
-    @import "./../../public/common";
+    @import "./../assets/common";
     @btnwidthheight:40px;
     .personbtnbox{
         background: @hoverbgcolorr;
