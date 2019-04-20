@@ -25,7 +25,7 @@
         methods:{
             getsetdata(){
                 let _this=this;
-                this.axios.get('http://www.ooo0o.com/json/contentdetails.json',{
+                this.axios.get('/json/contentdetails.json',{
                     params:{
                         listid:_this.$route.params.id
                     }

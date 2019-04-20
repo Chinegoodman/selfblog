@@ -32,7 +32,7 @@
             },
             getsetdata(){
                 let _this=this;
-                this.axios.get('http://www.ooo0o.com/json/contentslist.json',{
+                this.axios.get('/json/contentslist.json',{
                     params:{
                         pagenumber:_this.currentpagenum
                     }
@@ -44,7 +44,7 @@
             // 翻页组件
             getchangenumber(pagenumber){
                 // console.log('父级获取到了')
-                console.log(pagenumber);
+                // console.log(pagenumber);
                 this.currentpagenum = pagenumber;
                 this.getsetdata()
             },

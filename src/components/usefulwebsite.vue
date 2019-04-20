@@ -20,7 +20,7 @@
         methods:{
             getsetdata(){
                 let _this=this;
-                this.axios.get('http://www.ooo0o.com/json/usefulwebsite.json').then((data)=>{
+                this.axios.get('/json/usefulwebsite.json').then((data)=>{
                     _this.websitesdata=data.data.usefulwebsitearr
                 })
             }
