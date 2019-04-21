@@ -16,7 +16,7 @@
         data(){
             return{
                 nickname:'小庞',
-                isloginstatus:true,
+                isloginstatus:false,
                 ismouseover:false,
             }
         },
