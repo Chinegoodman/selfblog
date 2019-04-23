@@ -9,22 +9,29 @@
         // props:['mengbanstatus'],
         data() {
             return {
-                mengbanstatus:false
+                // mengbanstatus:false
             }
         },
         methods: {
             clickmengban:function () {
-                eventbus.$emit('loginregistboxstatus',false);
-                this.mengbanstatus=false;
+                // eventbus.$emit('loginregistboxstatus',false);
+                // this.mengbanstatus=false;
+                this.$store.dispatch('mengbanstatus',false);
+                this.$store.dispatch('loginregistboxstatus',false);
             }
         },
         mounted() {
 
         },
+        computed:{
+            mengbanstatus(){
+                return this.$store.state.mengbanstatus
+            }
+        },
         created() {
-            eventbus.$on('mengbanstatus',(val)=>{
-                this.mengbanstatus = val;
-            })
+            // eventbus.$on('mengbanstatus',(val)=>{
+            //     this.mengbanstatus = val;
+            // })
         }
     };
 </script>

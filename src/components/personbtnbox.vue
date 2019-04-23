@@ -33,14 +33,9 @@
                 // eventbus.$emit('mengbanstatus',true)
                 // eventbus.$emit('loginregistboxstatus',true)
 
-                let dengluchenggong = confirm('确定登陆成功?');
-                if(dengluchenggong){
-                    setlocalstorage('checkiflogin',true);
-                    setlocalstorage('settuserdata',{nickname:'小明'});
+                this.$store.dispatch('mengbanstatus',true)
+                this.$store.dispatch('loginregistboxstatus',true)
 
-                    this.$store.dispatch('checkiflogin',true);
-                    this.$store.dispatch('settuserdata',{nickname:'小明'});
-                }
             },
             logout(){
                 let tuichudenglu = confirm('确定退出登录吗?');

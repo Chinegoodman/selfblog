@@ -28,7 +28,8 @@
 </template>
 
 <script>
-    import eventbus from './../eventbus'
+    // import eventbus from './../eventbus'
+    import {removelocalstorage,getlocalstorage, setlocalstorage} from "../usefuljs";
     export default {
         name: "loginregist",
         data(){
@@ -36,31 +37,61 @@
                 leftstatus:true,
                 rightstatus:false,
 
-                loginregistboxstatus:false,
+                // loginregistboxstatus:false,
 
             }
         },
         methods:{
             login(){
-                let loginstatus = confirm('模拟登录成功?')
-                if(loginstatus){
-                    eventbus.$emit('mengbanstatus',false);
-                    this.loginregistboxstatus =false
+                // let loginstatus = confirm('模拟登录成功?')
+                // if(loginstatus){
+                //     eventbus.$emit('mengbanstatus',false);
+                //     this.loginregistboxstatus =false
+                // }
+                let dengluchenggong = confirm('确定登陆成功?');
+                if(dengluchenggong){
+                    // this.loginregistboxstatus =false
+                    setlocalstorage('checkiflogin',true);
+                    setlocalstorage('settuserdata',{nickname:'小明'});
+
+                    this.$store.dispatch('checkiflogin',true);
+                    this.$store.dispatch('settuserdata',{nickname:'小明'});
+                    this.$store.dispatch('mengbanstatus',false);
+                    this.$store.dispatch('loginregistboxstatus',false);
                 }
             },
             regist(){
-                let loginstatus = confirm('模拟注册成功?')
-                if(loginstatus){
-                    eventbus.$emit('mengbanstatus',false);
+                // let loginstatus = confirm('模拟注册成功?')
+                // if(loginstatus){
+                //     eventbus.$emit('mengbanstatus',false);
+                //     this.loginregistboxstatus =false
+                // }
+                let zhucechenggong = confirm('模拟注册成功?');
+                if(zhucechenggong){
                     this.loginregistboxstatus =false
+                    setlocalstorage('checkiflogin',true);
+                    setlocalstorage('settuserdata',{nickname:'小明'});
+
+                    this.$store.dispatch('checkiflogin',true);
+                    this.$store.dispatch('settuserdata',{nickname:'小明'});
+                    this.$store.dispatch('mengbanstatus',false);
+                    this.$store.dispatch('loginregistboxstatus',false);
                 }
             }
         },
+        computed:{
+            loginregistboxstatus(){
+                return this.$store.state.loginregistboxstatus
+            },
+            mengbanstatus(){
+                return this.$store.state.mengbanstatus
+            }
+        },
         created() {
-            eventbus.$on('loginregistboxstatus',(val)=>{
-                // 监听s设置显示当前组件的状态loginregistboxstatus
-                this.loginregistboxstatus = val;
-            })
+            // eventbus.$on('loginregistboxstatus',(val)=>{
+            //     // 监听s设置显示当前组件的状态loginregistboxstatus
+            //     this.loginregistboxstatus = val;
+            // })
         }
     }
 </script>
