@@ -22,7 +22,6 @@
 
 <!--        用户登录及退出按钮-->
         <personbtnbox></personbtnbox>
-        用户登录
         <loginregist></loginregist>
         <!-- 登录用户才有的权限,通过vuex去做登陆判断后来控制他是否显示-->
         <homeordistribution></homeordistribution>
@@ -35,7 +34,6 @@
 </template>
 
 <script>
-
     import otherwebsite from './../components/otherwebsite'
     import usefulwebsite from './../components/usefulwebsite'
     import newmusicbox from './../components/selfcommon/newmusicbox'
@@ -44,6 +42,7 @@
     import feedback from './../components/feedback'
     import personbtnbox from './../components/personbtnbox'
     import loginregist from './../components/loginregist'
+    import {removelocalstorage,getlocalstorage, setlocalstorage} from "../usefuljs";
     export default {
         props:['mengbanstatus'],
         name: "Home",
@@ -52,8 +51,20 @@
             return{
                 leftstatus:true,
                 lefthidebgnstatus:false,
-                right_toptitle:'来点内容,安排',
+                right_toptitle:'你好,站点内容正在规划中,测试数据',
             }
+        },
+        methods:{
+          // checkiflogin(){
+          //     setlocalstorage('checkiflogin',true);
+          //     if(console.log(getlocalstorage('checkiflogin'))){
+          //         this.$store.dispath('checkiflogin',true);
+          //         this.$store.dispath('settuserdata',getlocalstorage('settuserdata'));
+          //     }
+          // }
+        },
+        mounted() {
+            // this.checkiflogin()
         }
     }
 </script>

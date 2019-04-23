@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 // import axios from 'axios'
+import { setlocalstorage,getlocalstorage,removelocalstorage } from './usefuljs/index'
 
 // 自定义尝试eventbus
 import eventbus from '@/eventbus'

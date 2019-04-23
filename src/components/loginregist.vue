@@ -71,10 +71,12 @@
 
         /*loginregist参照的定位对象为wrap必要时需要给wrap设置relative*/
         .loginregist{
-            width: 30vw;
-            min-width: 450px;
-            height: 30vw;
-            min-height: 450px;
+            /*width: 30vw;*/
+            /*min-width: 450px;*/
+            /*height: 30vw;*/
+            /*min-height: 450px;*/
+            height: 450px;
+            width: 450px;
             border-radius: 50%;
             overflow: hidden;
             position: absolute;

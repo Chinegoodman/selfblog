@@ -1,22 +1,23 @@
 <template>
     <div class="personbtnbox" @mouseover="mouseover()" @mouseout="mouseout()">
-        <p v-if="!isloginstatus&&!ismouseover">游客</p>
-        <p v-else-if="isloginstatus&&!ismouseover">{{nickname}}</p>
+        <p v-if="!iflogin&&!ismouseover">{{userdata.nickname}}</p>
+        <p v-else-if="iflogin&&!ismouseover">{{userdata.nickname}}</p>
 
-        <div class="btn" :class="{active:!isloginstatus && this.ismouseover}" @click="login">登录</div>
-        <div class="btn" :class="{active:isloginstatus && this.ismouseover}" @click="logout">退登</div>
+        <div class="btn" :class="{active:!iflogin && this.ismouseover}" @click="login">登录</div>
+        <div class="btn" :class="{active:iflogin && this.ismouseover}" @click="logout">退登</div>
     </div>
 </template>
 
 <script>
     // todo:设置默认状态为未登录,同时配置vuex
     import eventbus from './../eventbus'
+    import {removelocalstorage,getlocalstorage, setlocalstorage} from "../usefuljs";
     export default {
         name: "personbtnbox",
         data(){
             return{
-                nickname:'小庞',
-                isloginstatus:false,
+                // nickname:'小庞',
+                // isloginstatus:false,
                 ismouseover:false,
             }
         },
@@ -28,12 +29,47 @@
                 this.ismouseover = false;
             },
             login(){
-                eventbus.$emit('mengbanstatus',true)
-                eventbus.$emit('loginregistboxstatus',true)
+                // eventbus实现如下
+                // eventbus.$emit('mengbanstatus',true)
+                // eventbus.$emit('loginregistboxstatus',true)
+
+                let dengluchenggong = confirm('确定登陆成功?');
+                if(dengluchenggong){
+                    setlocalstorage('checkiflogin',true);
+                    setlocalstorage('settuserdata',{nickname:'小明'});
+
+                    this.$store.dispatch('checkiflogin',true);
+                    this.$store.dispatch('settuserdata',{nickname:'小明'});
+                }
             },
             logout(){
+                let tuichudenglu = confirm('确定退出登录吗?');
+                if(tuichudenglu){
+                    removelocalstorage('checkiflogin');
+                    removelocalstorage('settuserdata');
 
+                    this.$store.dispatch('checkiflogin',false);
+                    let settuserdata = {nickname:'游客'};
+                    this.$store.dispatch('settuserdata',settuserdata);
+                }
+            },
+            checkiflogin(){
+                if(getlocalstorage('checkiflogin')){
+                    this.$store.dispatch('checkiflogin',true);
+                    this.$store.dispatch('settuserdata',getlocalstorage('settuserdata'));
+                }
             }
+        },
+        computed:{
+            iflogin(){
+                return this.$store.state.iflogin
+            },
+            userdata(){
+                return this.$store.state.userdata
+            }
+        },
+        mounted() {
+            this.checkiflogin()
         }
     }
 </script>
