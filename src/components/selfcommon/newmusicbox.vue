@@ -172,7 +172,8 @@
         .title,.musiccontrols{
             width: 20em;
             line-height: 2em;
-
+        }
+        .title{
             height: 2em;
             overflow: hidden;
         }
