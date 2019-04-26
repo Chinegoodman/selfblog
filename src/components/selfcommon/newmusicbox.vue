@@ -1,7 +1,7 @@
 <template>
     <div class="newmusicbox" :class="{hide:!musicboxdata.musicboxstatus}">
 
-        <div class="title"><span>歌曲:{{musicboxdata.currentname}}</span>,<span>来自:{{musicboxdata.currentsinger}}</span></div>
+        <div class="title"><span>{{musicboxdata.currentname}}</span><span>>>>>{{musicboxdata.currentsinger}}</span></div>
         <div class="musiccontrols">
             <p @click="musicboxdata.musiclistbox=!musicboxdata.musiclistbox">歌单</p>
             <p @click="prevsong(musicboxdata.musicindex)">上一首</p>
@@ -172,6 +172,9 @@
         .title,.musiccontrols{
             width: 20em;
             line-height: 2em;
+
+            height: 2em;
+            overflow: hidden;
         }
         .musiccontrols{
             display: flex;
@@ -181,6 +184,7 @@
                 border: 1px solid @bordercolor;
                 padding: 0.1em 0.4em;
                 line-height: 1.2em;
+                height: 1.2em;
 
                 position: relative;
                 z-index: 100;
@@ -210,7 +214,9 @@
             padding: 0 1em;
             background: @white;
             border: 1px solid @bordercolor;
-            &:after{
+            max-height: calc( 100vh - 9em - 145px );
+            overflow-y: scroll;
+            /*&:after{
                 content: '';
                 width: 0px;
                 height: 0px;
@@ -218,9 +224,9 @@
                 border-top-width: 4em;
                 border-top-color: @bordercolor;
                 position: absolute;
-                top: 100%;
+                bottom: -8em;
                 left: 2%;
-            }
+            }*/
             .title{
                 font-weight: 600;
                 line-height: 2em;
@@ -238,6 +244,8 @@
                 p{
                     float: left;
                     line-height: 2em;
+                    height: 2em;
+                    overflow: hidden;
                     box-sizing: border-box;
                 }
                 p:nth-child(1){
@@ -264,7 +272,7 @@
             height: 4em;
             border-radius: 50%;
             background: @hoverbgcolorr;
-            background: url("./../../assets/logo.png") center #ccc;
+            background: url("./../../assets/music.png") center transparent;
             background-size: cover;
             position: absolute;
             right: 2px;
@@ -273,7 +281,7 @@
             cursor: pointer;
 
             &.active{
-                animation: rotate 2.3s linear infinite;
+                animation: scale 2.3s linear infinite;
             }
         }
     }
@@ -283,6 +291,23 @@
         }
         to{
             transform: translateY(50%) rotate(360deg);
+        }
+    }
+    @keyframes scale {
+        0%{
+            transform: translateY(50%) scale(1,1) rotate(0deg);
+        }
+        25%{
+            transform: translateY(50%) scale(0.9,0.9) rotate(90deg);
+        }
+        50%{
+            transform: translateY(50%) scale(1,1) rotate(180deg);
+        }
+        75%{
+            transform: translateY(50%) scale(1.1,1.1) rotate(270deg);
+        }
+        100%{
+            transform: translateY(50%) scale(1,1) rotate(360deg);
         }
     }
 </style>
