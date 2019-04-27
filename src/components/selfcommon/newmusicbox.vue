@@ -16,20 +16,22 @@
             </p>
         </div>
         <div class="musiclistbox" v-show="musicboxdata.musiclistbox">
-            <div class="title">自己存数据库的歌曲</div>
-            <div class="clearfloat">
-                <p>状态</p>
-                <p>歌名</p>
-                <p>歌手</p>
+            <div class="musiclistboxscroll">
+                <div class="title">自己存数据库的歌曲</div>
+                <div class="clearfloat">
+                    <p>状态</p>
+                    <p>歌名</p>
+                    <p>歌手</p>
+                </div>
+                <div class="clearfloat" v-for="(item,index) in musicdata" :key="index">
+                    <p v-if="item.musicurl != musicboxdata.musicurl" @click="musicplaythis(index)" style="cursor: pointer;">听一下</p>
+                    <!--                <p v-else style="background:#fafafa;color:#003567;">正听..</p>-->
+                    <p v-else style="background:#003567;color:#fafafa;">正听..</p>
+                    <p>{{item.name}}</p>
+                    <p>{{item.singer}}</p>
+                </div>
+                <div class="tips">没有你想听的歌吗?快点击右侧的"有意见..."来反馈吧</div>
             </div>
-            <div class="clearfloat" v-for="(item,index) in musicdata" :key="index">
-                <p v-if="item.musicurl != musicboxdata.musicurl" @click="musicplaythis(index)" style="cursor: pointer;">听一下</p>
-<!--                <p v-else style="background:#fafafa;color:#003567;">正听..</p>-->
-                <p v-else style="background:#003567;color:#fafafa;">正听..</p>
-                <p>{{item.name}}</p>
-                <p>{{item.singer}}</p>
-            </div>
-            <div class="tips">没有你想听的歌吗?快点击右侧的"有意见..."来反馈吧</div>
         </div>
 
         <div @click="musicboxdata.musicboxstatus=!musicboxdata.musicboxstatus" class="musicstatus" :class="{active:musicboxdata.musicstatus}"></div>
@@ -153,7 +155,7 @@
         font-size: 15px;
         position: fixed;
         left: 0;
-        bottom: 145px;
+        bottom: 135px;
         z-index: 100;
         padding: 0.4em;
         border: 1px solid @bordercolor;
@@ -176,6 +178,7 @@
         .title{
             height: 2em;
             overflow: hidden;
+            width: 100%;
         }
         .musiccontrols{
             display: flex;
@@ -212,12 +215,8 @@
             bottom: 7em;
             left: 1em;
             width: 93%;
-            padding: 0 1em;
-            background: @white;
             border: 1px solid @bordercolor;
-            max-height: calc( 100vh - 9em - 145px );
-            overflow-y: scroll;
-            /*&:after{
+            &:after{
                 content: '';
                 width: 0px;
                 height: 0px;
@@ -225,9 +224,17 @@
                 border-top-width: 4em;
                 border-top-color: @bordercolor;
                 position: absolute;
-                bottom: -8em;
+                top: 100%;
                 left: 2%;
-            }*/
+            }
+            .musiclistboxscroll{
+                max-height: calc( 100vh - 9em - 145px );
+                width: 100%;
+                overflow-y: scroll;
+                padding: 0 1em;
+                background: @white;
+                box-sizing: border-box;
+            }
             .title{
                 font-weight: 600;
                 line-height: 2em;
