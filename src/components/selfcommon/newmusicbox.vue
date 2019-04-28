@@ -178,7 +178,8 @@
         .title{
             height: 2em;
             overflow: hidden;
-            width: 100%;
+            /*width: 100%;*/
+            width: 85%;
         }
         .musiccontrols{
             display: flex;

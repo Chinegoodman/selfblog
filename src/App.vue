@@ -9,6 +9,14 @@
     <router-view/>
   </div>
 </template>
+<script>
+  import {checkdevice} from './usefuljs/checkdevice';
+  export default {
+    beforeCreate() {
+      checkdevice();
+    }
+  }
+</script>
 
 <style lang="less">
 @import "./assets/reset.css";
