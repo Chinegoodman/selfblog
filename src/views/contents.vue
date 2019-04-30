@@ -107,7 +107,7 @@
                 span{
                     text-decoration: underline;
                     font-size: @fontsizedefault;
-                    line-height: 1.2em;
+                    line-height: 2.2em;
                     cursor: pointer;
                 }
             }
