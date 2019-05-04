@@ -2,8 +2,17 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+
 // import axios from 'axios'
 import { setlocalstorage,getlocalstorage,removelocalstorage } from './usefuljs/index'
+
+// 方式一:
+// const fashionclock = require('fashionclock')
+// Vue.prototype.fashionclock =fashionclock
+
+// 方式二
+import fashionclock from 'fashionclock'
+Vue.prototype.fashionclock =fashionclock
 
 // 自定义尝试eventbus
 import eventbus from '@/eventbus'

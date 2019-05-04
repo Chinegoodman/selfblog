@@ -36,10 +36,14 @@
       <musicbox :musicdata="musicdata"></musicbox>
 
       <newmusicbox></newmusicbox>
+
+      <div style="position: fixed;left: 20px; top: 20px; width: 40vw;height: 40vw;">
+          <canvas id="abcd"></canvas>
+      </div>
   </div>
 </template>
 <script>
-  // @ is an alias to /src
+    // @ is an alias to /src
   export default {
     name: 'home',
     components: {
@@ -78,6 +82,24 @@
             musicdata:{
                 title:'😆😳你好，这是我自己收藏的音乐🎶(暂时为第三方的音乐列表)',
                 musilistapi:'http://www.egtch.com/t_works/Vuedata/data.php'
+            },
+
+
+
+            cvsparams:{
+                // 选择器==画布宽高值==中间的字==中间字大小==时间字体大小==圆盘背景色==背景图片==中间字颜色==时间字体颜色==画布背景色(默认透明)==圆盘的outline色
+                selectdom:'#abcd',      //选择器
+                cvswh:'760',      //画布宽高值
+                word:'庞',      //中间的字
+                wordsize:'',      //中间字大小
+                timesize:'',      //时间字体大小
+                bgclolr:'',      //圆盘背景色
+                bgpic:'',      //背景图片
+                wordcolor:'',      //中间字颜色
+                timecolor:'',      //时间字体颜色
+                boxbgclolr:'',      //画布背景色(默认透明)
+                outlinecolor:'',      //圆盘的outline色
+                currentboxcolor:''      //当前时间框的填充色
             }
         }
     },
@@ -116,6 +138,9 @@
             // console.log(fileDataObj.fileIdName)
             this.psf_labetext=fileDataObj.fileData.name
         }
+    },
+    mounted() {
+        this.fashionclock(this.cvsparams)
     }
   }
 </script>
