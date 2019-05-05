@@ -34,6 +34,7 @@
                 this.timedata.shi = time.getHours();
                 this.timedata.fen = time.getMinutes();
                 this.timedata.miao = time.getSeconds();
+                // console.log(time.getDay())
             },
         },
         filters:{
@@ -51,7 +52,7 @@
                         return '五';
                     case 6:
                         return '六';
-                    case 7:
+                    case 0:
                         return '日';
                 }
             },
