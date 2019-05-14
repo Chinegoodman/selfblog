@@ -72,9 +72,9 @@
             getsetmusicdata:function () {
                 let _this=this;
                 this.changevoice('5%');
-                this.axios.get('/json/musiclist.json').then((data)=>{
-                    _this.musicdata = data.data.listarr;
-                    let randomnum = data.data.listarr.length;
+                this.axios.get('/blog/public/index.php/musicList').then((data)=>{
+                    _this.musicdata = data.data.data;
+                    let randomnum = data.data.data.length;
                     let randomindex = parseInt(Math.random()*randomnum);
                     // console.log(randomindex);
                     _this.musicboxdata.currentname = _this.musicdata[randomindex].name;

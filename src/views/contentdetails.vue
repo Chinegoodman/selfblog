@@ -25,12 +25,13 @@
         methods:{
             getsetdata(){
                 let _this=this;
-                this.axios.get('/json/contentdetails.json',{
+                let id = this.$route.params.id;
+                this.axios.get(`/blog/public/index.php/blogDetail/${id}`,{
                     params:{
                         listid:_this.$route.params.id
                     }
                 }).then((data)=>{
-                    _this.itemdata=data.data
+                    _this.itemdata=data.data.data
                 })
             },
         },

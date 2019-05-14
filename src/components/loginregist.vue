@@ -4,8 +4,8 @@
             <transition name="scale-fade">
                 <div class="loginbox" v-if="leftstatus">
                     <h3>用户登录</h3>
-                    <div class="clearfloat"><span>注册邮箱:</span><input type="email"></div>
-                    <div class="clearfloat"><span>密码:</span><input type="password"></div>
+                    <div class="clearfloat"><span>注册邮箱:</span><input type="email" v-model="email"></div>
+                    <div class="clearfloat"><span>密码:</span><input type="password" v-model="password"></div>
                     <hr style="visibility: hidden;">
                     <div class="submitbtn" @click.stop="login()">登录</div>
                     <hr style="visibility: hidden;">
@@ -15,8 +15,9 @@
             <transition name="scale-fade">
                 <div class="registbox" v-if="rightstatus">
                     <h3>用户注册</h3>
-                    <div class="clearfloat"><span>注册邮箱:</span><input type="email"></div>
-                    <div class="clearfloat"><span>密码:</span><input type="password"></div>
+                    <div class="clearfloat"><span>注册邮箱:</span><input type="email" v-model="regist_email"></div>
+                    <div class="clearfloat" style="position: relative;"><span>验证码:</span><input type="text" v-model="regist_keyword"><span @click="get_keyword" style="position: absolute;right: 0;top: 0;margin: 0;width: auto;cursor: pointer;background-color: #ccc;color: #fff;padding: 0 0.4em;">获取验证码</span></div>
+                    <div class="clearfloat"><span>密码:</span><input type="password" v-model="regist_password"></div>
                     <hr style="visibility: hidden;">
                     <div class="submitbtn" @click.stop="regist()">注册</div>
                     <hr style="visibility: hidden;">
@@ -38,45 +39,86 @@
                 rightstatus:false,
 
                 // loginregistboxstatus:false,
+                // 登录数据
+                email:'',
+                password:'',
 
+                // 注册数据
+                regist_email:'',
+                regist_keyword:'',
+                regist_password:'',
             }
         },
         methods:{
             login(){
-                // let loginstatus = confirm('模拟登录成功?')
-                // if(loginstatus){
-                //     eventbus.$emit('mengbanstatus',false);
-                //     this.loginregistboxstatus =false
-                // }
-                let dengluchenggong = confirm('确定登陆成功?');
-                if(dengluchenggong){
-                    // this.loginregistboxstatus =false
+                this.axios.post('/blog/public/index.php/login',{
+                    email:this.email,
+                    password:this.password,
+                }).then(function (response) {
+                    if(response.data.code==0){
+                        alert(response.data.msg);
+                        return;
+                    }
                     setlocalstorage('checkiflogin',true);
-                    setlocalstorage('settuserdata',{nickname:'小明'});
+                    setlocalstorage('settuserdata',{nickname:response.data.nickname});
 
                     this.$store.dispatch('checkiflogin',true);
-                    this.$store.dispatch('settuserdata',{nickname:'小明'});
+                    this.$store.dispatch('settuserdata',{nickname:response.data.nickname});
                     this.$store.dispatch('mengbanstatus',false);
                     this.$store.dispatch('loginregistboxstatus',false);
-                }
+                }).catch(function (response) {
+                    console.log(response)
+                })
+
+                // let dengluchenggong = confirm('确定登陆成功?');
+                // if(dengluchenggong){
+                //     // this.loginregistboxstatus =false
+                //     setlocalstorage('checkiflogin',true);
+                //     setlocalstorage('settuserdata',{nickname:'小明'});
+                //
+                //     this.$store.dispatch('checkiflogin',true);
+                //     this.$store.dispatch('settuserdata',{nickname:'小明'});
+                //     this.$store.dispatch('mengbanstatus',false);
+                //     this.$store.dispatch('loginregistboxstatus',false);
+                // }
             },
             regist(){
-                // let loginstatus = confirm('模拟注册成功?')
-                // if(loginstatus){
-                //     eventbus.$emit('mengbanstatus',false);
-                //     this.loginregistboxstatus =false
-                // }
-                let zhucechenggong = confirm('模拟注册成功?');
-                if(zhucechenggong){
-                    this.loginregistboxstatus =false
+                this.axios.post('/blog/public/index.php/register',{
+                    email:this.email,
+                    verify_code:this.regist_keyword,
+                    password:this.password,
+                    repassword:this.password,
+                }).then(function (res) {
+                    debugger;
+                    console.log(res)
                     setlocalstorage('checkiflogin',true);
-                    setlocalstorage('settuserdata',{nickname:'小明'});
+                    setlocalstorage('settuserdata',{nickname:res.data.nickname});
 
                     this.$store.dispatch('checkiflogin',true);
-                    this.$store.dispatch('settuserdata',{nickname:'小明'});
+                    this.$store.dispatch('settuserdata',{nickname:res.data.nickname});
                     this.$store.dispatch('mengbanstatus',false);
                     this.$store.dispatch('loginregistboxstatus',false);
-                }
+                });
+                // let zhucechenggong = confirm('模拟注册成功?');
+                // if(zhucechenggong){
+                //     this.loginregistboxstatus =false
+                //     setlocalstorage('checkiflogin',true);
+                //     setlocalstorage('settuserdata',{nickname:'小明'});
+                //
+                //     this.$store.dispatch('checkiflogin',true);
+                //     this.$store.dispatch('settuserdata',{nickname:'小明'});
+                //     this.$store.dispatch('mengbanstatus',false);
+                //     this.$store.dispatch('loginregistboxstatus',false);
+                // }
+            },
+            get_keyword(){
+                // todo: 此处的获取验证码还不通,需调试
+                this.axios.post('/blog/public/index.php/sendMail',{
+                    email:this.regist_email
+                }).then(function (res) {
+                    debugger;
+                    console.log(res);
+                })
             }
         },
         computed:{

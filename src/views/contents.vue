@@ -32,12 +32,13 @@
             },
             getsetdata(){
                 let _this=this;
-                this.axios.get('/json/contentslist.json',{
+                this.axios.get('/blog/public/index.php/blogList',{
                     params:{
                         pagenumber:_this.currentpagenum
                     }
                 }).then((data)=>{
-                    _this.contentsarr=data.data.contentsarr
+                    // console.log(data)
+                    _this.contentsarr=data.data.data
                 })
             },
 
