@@ -1,6 +1,6 @@
 <template>
     <div class="contentdetails">
-        <p>内容id :{{$route.params.id}}</p>
+<!--        <p>内容id :{{$route.params.id}}</p>-->
         <div class="contenli">
             <p class="title">{{itemdata.title}}</p>
             <ul class="clearfloat">

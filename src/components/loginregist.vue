@@ -113,10 +113,14 @@
             },
             get_keyword(){
                 // todo: 此处的获取验证码还不通,需调试
+                // debugger;
                 this.axios.post('/blog/public/index.php/sendMail',{
                     email:this.regist_email
                 }).then(function (res) {
-                    debugger;
+                    if(res.data.code==0){
+                        alert(res.data.msg);
+                        return;
+                    }
                     console.log(res);
                 })
             }
