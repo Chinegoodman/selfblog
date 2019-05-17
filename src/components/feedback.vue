@@ -24,7 +24,7 @@
         },
         methods:{
             submitfeedback(){
-                // todo:  反馈接口有问题  及 发送验证码也有问题
+                let _this = this;
                 this.axios.post('/blog/public/index.php/feedbackAdd',{
                     contents : this.feedback,
                     uid:'',
@@ -35,7 +35,7 @@
                         return;
                     }
                     alert(response.data.msg+'|||反馈成功');
-                    this.feedback='';
+                    _this.feedback='';
                 })
             },
             cancle(){
