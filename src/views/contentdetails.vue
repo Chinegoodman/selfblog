@@ -7,7 +7,7 @@
                 <li v-for="(item,index) in itemdata.tags" :key="index">{{item}}</li>
             </ul>
             <div class="contentdetails">
-                <div>{{itemdata.contentall}}</div>
+                <div v-html="itemdata.contentall"></div>
             </div>
             <div class="author">by: <span>{{itemdata.author}}</span></div>
         </div>

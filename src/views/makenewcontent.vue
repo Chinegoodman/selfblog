@@ -129,9 +129,8 @@
                     return;
                 }
                 console.log(this.submitdata);
-                debugger;
-                this.axios.post('/blog/public/index.php/login',{
-                    uid:2,
+                this.axios.post('/blog/public/index.php/blogAdd',{
+                    uid:'2',
                     title:_this.submitdata.title,
                     shortcontent:_this.submitdata.shortcontent,
                     contentall:_this.submitdata.contentall,
@@ -139,11 +138,10 @@
                     // tags:_this.submitdata.tags,
                     tags:''
                 }).then(function (response) {
-                    debugger;
                     if(response.data.code == 0){
                         alert(response.data.msg);
                     }
-                    console.log(response)
+                    alert(response.data.msg);
                 })
             },
             gobackindex(){
