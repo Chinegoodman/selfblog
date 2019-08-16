@@ -42,7 +42,7 @@
 
             },
             feedbackhide(){
-
+                alert('想的挺美')
             }
         }
     }

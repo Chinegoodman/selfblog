@@ -46,6 +46,7 @@
                     this.$store.dispatch('checkiflogin',false);
                     let settuserdata = {nickname:'游客'};
                     this.$store.dispatch('settuserdata',settuserdata);
+                    this.$router.push({name:'contents'})
                 }
             },
             checkiflogin(){

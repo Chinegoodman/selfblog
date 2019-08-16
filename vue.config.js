@@ -7,16 +7,16 @@ module.exports = {
         // https: false,
         proxy: {
             '/juheapi': {
-                target: 'http://v.juhe.cn',
+                target: 'https://v.juhe.cn',
                 changeOrigin: true,
                 ws:true,
                 pathRewrite:{
                     '^/juheapi':''
                 }
             },
-            // http://api.komavideo.com/news
+            // https://api.komavideo.com/news
             '/newsapi': {
-                target: 'http://api.komavideo.com',
+                target: 'https://api.komavideo.com',
                 changeOrigin: true,
                 ws:true,
                 pathRewrite:{
@@ -24,7 +24,7 @@ module.exports = {
                 }
             },
             '/ooo0oapi': {
-                target: 'http://www.ooo0o.com',
+                target: 'https://www.ooo0o.com',
                 changeOrigin: true,
                 ws:true,
                 pathRewrite:{

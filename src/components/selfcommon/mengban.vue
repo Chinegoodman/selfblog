@@ -46,7 +46,8 @@
         top: 0;
         /*background-color: rgba(0,0,0,0.3);*/
         /*background: linear-gradient(left,#f96,#ace);*/
-        background: linear-gradient(left,rgba(170,204,238,0.9),rgba(255,153,102,0.9));
+        // background: linear-gradient(left,rgba(170,204,238,0.9),rgba(255,153,102,0.9));
+        background: linear-gradient(left,rgba(170,204,238,0.9),rgba(41,70,102,0.9));
         z-index: @mengbanzIndex;
     }
 </style>

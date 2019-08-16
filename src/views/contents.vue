@@ -22,7 +22,7 @@
             return{
                 contentsarr:[],
                 // 翻页组件
-                pagesall_number:44,//总页数
+                pagesall_number:1,//总页数
                 currentpagenum:1,
             }
         },
@@ -37,15 +37,17 @@
                         pagenumber:_this.currentpagenum
                     }
                 }).then((data)=>{
-                    // console.log(data)
+                    // console.log(Math.floor(data.data.count / 10));
+                    // console.log(Math.ceil(data.data.count / 10));
                     _this.contentsarr=data.data.data
+                    _this.pagesall_number = Math.ceil(data.data.count / 10);
                 })
             },
 
             // 翻页组件
             getchangenumber(pagenumber){
                 // console.log('父级获取到了')
-                // console.log(pagenumber);
+                console.log(pagenumber);
                 this.currentpagenum = pagenumber;
                 this.getsetdata()
             },

@@ -33,7 +33,7 @@
                     {{currenttime | time}}/{{durationtime | time}}
                 </div>
             </div>
-            <!--<audio controls ref="audio" src="http://www.ooo0o.com/demo/music/fade.mp3"></audio>-->
+            <!--<audio controls ref="audio" src="https://www.ooo0o.com/demo/music/fade.mp3"></audio>-->
             <!--<audio controls ref="audio" :src="currentmusicdataurl"></audio>-->
             <audio controls ref="audio" :src="currentmusicdata.url"></audio>
         </div>

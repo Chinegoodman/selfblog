@@ -32,6 +32,7 @@
 </template>
 
 <script>
+    import {removelocalstorage,getlocalstorage, setlocalstorage} from "../usefuljs";
     export default {
         name: "makenewcontent",
         data(){
@@ -130,7 +131,7 @@
                 }
                 console.log(this.submitdata);
                 this.axios.post('/blog/public/index.php/blogAdd',{
-                    uid:'2',
+                    uid: getlocalstorage('settuserdata').id,
                     title:_this.submitdata.title,
                     shortcontent:_this.submitdata.shortcontent,
                     contentall:_this.submitdata.contentall,
@@ -142,6 +143,7 @@
                         alert(response.data.msg);
                     }
                     alert(response.data.msg);
+                    _this.$router.push({name:'contents'})
                 })
             },
             gobackindex(){

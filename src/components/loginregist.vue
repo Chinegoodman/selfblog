@@ -51,6 +51,7 @@
         },
         methods:{
             login(){
+                let _this=this;
                 this.axios.post('/blog/public/index.php/login',{
                     email:this.email,
                     password:this.password,
@@ -60,13 +61,12 @@
                         return;
                     }
                     setlocalstorage('checkiflogin',true);
-                    setlocalstorage('settuserdata',{nickname:response.data.nickname});
-                    setlocalstorage('settuserdata',{nickname:'已登陆',id:response.data.id});
-
-                    this.$store.dispatch('checkiflogin',true);
-                    this.$store.dispatch('settuserdata',{nickname:response.data.nickname});
-                    this.$store.dispatch('mengbanstatus',false);
-                    this.$store.dispatch('loginregistboxstatus',false);
+                    // setlocalstorage('settuserdata',{nickname:response.data.nickname});
+                    setlocalstorage('settuserdata',{nickname:'已登陆',id:response.data.data.id});
+                    _this.$store.dispatch('checkiflogin',true);
+                    _this.$store.dispatch('settuserdata',{nickname:response.data.nickname});
+                    _this.$store.dispatch('mengbanstatus',false);
+                    _this.$store.dispatch('loginregistboxstatus',false);
                 }).catch(function (response) {
                     console.log(response)
                 })
