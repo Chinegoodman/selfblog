@@ -23,7 +23,7 @@ export function checkdevice() {
         if(window.location.href.indexOf("ooo0o.com/mobile") != -1){
             return;
         }else {
-            window.location.href = "http://www.ooo0o.com/mobile"
+            window.location.href = "https://www.ooo0o.com/mobile"
         }
 
         var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
@@ -37,21 +37,21 @@ export function checkdevice() {
             //是否在安卓浏览器打开
 
             // alert('安卓手机中打开的');
-            /*window.location.href="http://jushizhibo.com/android/app-release.apk";*/
-            // window.open('http://jushizhibo.com/android/app-release.apk','_self')
+            /*window.location.href="https://jushizhibo.com/android/app-release.apk";*/
+            // window.open('https://jushizhibo.com/android/app-release.apk','_self')
 
         }
         else if(browser.versions.ios){
             //是否在IOS浏览器打开
             // alert('IOS中打开的');
-            /*window.location.href="http://www.baidu.com";*/
+            /*window.location.href="https://www.baidu.com";*/
             // window.open('transparentfactory://xiangqingye','_self')
         }
     } else {
         //此时是非移动端,则跳转PC站
         // alert('PC中打开的');
         if(window.location.href.indexOf("ooo0o.com/mobile") != -1){
-            window.location.href = "http://www.ooo0o.com"
+            window.location.href = "https://www.ooo0o.com"
         }
     }
 }

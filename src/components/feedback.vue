@@ -3,7 +3,7 @@
         <i>x</i>
         <p>有意见想反馈</p>
         <div class="box">
-            <textarea :maxlength="maxlength" placeholder="欢迎提笔给予意见建议,谢谢">{{feedback}}</textarea>
+            <textarea :maxlength="maxlength" placeholder="欢迎提笔给予意见建议,谢谢"  v-model="feedback"></textarea>
             <div class="btns">
                 <div @click="submitfeedback">提交反馈</div>
                 <div @click="cancle">暂时没啥要说的</div>
@@ -24,13 +24,25 @@
         },
         methods:{
             submitfeedback(){
-
+                let _this = this;
+                this.axios.post('/blog/public/index.php/feedbackAdd',{
+                    contents : this.feedback,
+                    uid:'',
+                }).then(function (response) {
+                    console.log(response)
+                    if(response.data.code==0){
+                        alert(response.data.msg);
+                        return;
+                    }
+                    alert(response.data.msg+'|||反馈成功');
+                    _this.feedback='';
+                })
             },
             cancle(){
 
             },
             feedbackhide(){
-
+                alert('想的挺美')
             }
         }
     }

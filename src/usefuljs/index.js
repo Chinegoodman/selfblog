@@ -1,10 +1,10 @@
-export function setlocalstorage(name,val) {
+export function setlocalstorage(name, val) {
     if (!name) return;
-    window.localStorage.setItem(name,val);
+    window.localStorage.setItem(name, JSON.stringify(val));
 };
 export function getlocalstorage(name) {
     if (!name) return;
-    return window.localStorage.getItem(name);
+    return JSON.parse(window.localStorage.getItem(name));
 };
 export function removelocalstorage(name) {
     if (!name) return;

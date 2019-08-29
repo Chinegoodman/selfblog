@@ -233,7 +233,7 @@
                 width: 100%;
                 overflow-y: scroll;
                 padding: 0 1em;
-                background: @white;
+                background: hsla(0,0%,100%,.8);
                 box-sizing: border-box;
             }
             .title{

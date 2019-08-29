@@ -44,6 +44,8 @@ body{
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background-image: url('http://ooo0o.com/0e7b9201905192323168905.jpg');
+  background-size: cover;
 }
 
 /*#nav {*/

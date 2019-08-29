@@ -42,6 +42,12 @@
       <div style="position: fixed;left: 20px; top: 20px; width: 40vw;height: 40vw;">
           <canvas id="abcd"></canvas>
       </div>
+
+      <div id="musiccvsbox" ref="musiccvsbox" style="position: fixed;right: 20px; top: 20px; width: 40vw;height: 40vw;">
+          <canvas ref="musiccvs" id="musiccvs"></canvas>
+      </div>
+      <audio style="position: fixed;right: 20px; bottom: 20px;" controls ref="musicsrc" preload="true" src="https://www.ooo0o.com/music/WhenIsawyouIfellinlove.mp3"></audio>
+      <!-- <audio style="position: fixed;right: 20px; bottom: 20px;" controls ref="musicsrc" preload="true" src="./../../public/ttt.mp3"></audio> -->
   </div>
 </template>
 <script>
@@ -56,14 +62,10 @@
             // quilleditor数据
             content: `<p>hello world</p>`,
             editorOption: {},
-
             // tags标签组件
             tagsdata:[],
-
-
             // 翻页组件
             pagesall_number:18,//总页数
-
             // 文件上传组件的参数
             psf_upfileresetdata:{
                 // 可能的6种文件类型
@@ -75,19 +77,15 @@
                 // application/x-zip-compressed 比如.zip压缩文件
                 filetype:'*',
                 fileIdName:'fileinputWEIYIDEIdName',
-                upfileurl:'http://www.ooo0o.com/tp5/public/home/index/qiniuUpload',
+                upfileurl:'https://www.ooo0o.com/tp5/public/home/index/qiniuUpload',
                 upfilesize:20,
             },
             psf_labetext:'请选择要上传的文件',
-
             // 音乐模块
             musicdata:{
                 title:'😆😳你好，这是我自己收藏的音乐🎶(暂时为第三方的音乐列表)',
-                musilistapi:'http://www.egtch.com/t_works/Vuedata/data.php'
+                musilistapi:'https://www.egtch.com/t_works/Vuedata/data.php'
             },
-
-
-
             cvsparams:{
                 // 选择器==画布宽高值==中间的字==中间字大小==时间字体大小==圆盘背景色==背景图片==中间字颜色==时间字体颜色==画布背景色(默认透明)==圆盘的outline色
                 selectdom:'#abcd',      //选择器
@@ -102,7 +100,13 @@
                 boxbgclolr:'',      //画布背景色(默认透明)
                 outlinecolor:'',      //圆盘的outline色
                 currentboxcolor:''      //当前时间框的填充色
-            }
+            },
+            // musiccvsparams : {
+            //     cvsdom:this.$refs.musiccvs,//画布节点元素
+            //     size:800,//画布原始默认宽高
+            //     sourcedom:this.$refs.musicsrc,//音频源节点元素
+            //     bgcolor:'rgba(255,255,0,1)'//画布圆圈背景颜色
+            // }
         }
     },
     computed:{
@@ -142,7 +146,9 @@
         }
     },
     mounted() {
-        this.fashionclock(this.cvsparams)
+        this.fashionclock(this.cvsparams);
+        let _this=this;
+        _this.cvsgetready(_this.$refs.musiccvs,800,_this.$refs.musicsrc,'rgba(255,255,0,0.8)')
     }
   }
 </script>
@@ -171,36 +177,32 @@
         height: 350px;
         background: #0ff;
     }
+
+
+    // 自定义画布实现音频显示
+    #musiccvsbox {
+        margin: 0 auto;
+        position: relative;
+        /* background-color: royalblue; */
+        background: url('http://ooo0o.com/4eafc201905200012388758.jpg') center center no-repeat;
+        background-size: cover;
+    }
+    
+    #musiccvs {
+        display: block;
+        /* animation: rotate 6s linear infinite; */
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform-origin: 0 0;
+    }
+    
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg)
+        }
+        100% {
+            transform: rotate(360deg)
+        }
+    }
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
-</template>
-
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
-</script>
--->

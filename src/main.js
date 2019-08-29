@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 
 // import axios from 'axios'
-import { setlocalstorage,getlocalstorage,removelocalstorage } from './usefuljs/index'
+import { setlocalstorage, getlocalstorage, removelocalstorage } from './usefuljs/index'
 
 // 方式一:
 // const fashionclock = require('fashionclock')
@@ -12,7 +12,10 @@ import { setlocalstorage,getlocalstorage,removelocalstorage } from './usefuljs/i
 
 // 方式二
 import fashionclock from 'fashionclock'
-Vue.prototype.fashionclock =fashionclock
+Vue.prototype.fashionclock = fashionclock
+
+import fashion_music_cvs from 'fashion_music_cvs'
+Vue.prototype.cvsgetready = fashion_music_cvs
 
 // 自定义尝试eventbus
 import eventbus from '@/eventbus'
@@ -34,7 +37,7 @@ Vue.use(VueQuillEditor)
 Vue.config.productionTip = false
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')

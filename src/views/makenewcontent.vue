@@ -32,6 +32,7 @@
 </template>
 
 <script>
+    import {removelocalstorage,getlocalstorage, setlocalstorage} from "../usefuljs";
     export default {
         name: "makenewcontent",
         data(){
@@ -41,7 +42,8 @@
                     // tagsarr:[],
                     shortcontent:'',
                     contentall:'',
-                    author:''
+                    author:'',
+                    tags:[]
                 },
 
                 // tags标签组件
@@ -112,8 +114,8 @@
                     return;
                 }
                 if(_this.submitdata.length<=0){
-                    alert('请至少编辑与文章的相关一个标签');
-                    return;
+                    // alert('请至少编辑与文章的相关一个标签');
+                    // return;
                 }
                 if(!_this.submitdata.shortcontent){
                     alert('请填写一段简短的文章简介');
@@ -127,7 +129,22 @@
                     alert('请输入您的笔名或者昵称');
                     return;
                 }
-                console.log(this.submitdata)
+                console.log(this.submitdata);
+                this.axios.post('/blog/public/index.php/blogAdd',{
+                    uid: getlocalstorage('settuserdata').id,
+                    title:_this.submitdata.title,
+                    shortcontent:_this.submitdata.shortcontent,
+                    contentall:_this.submitdata.contentall,
+                    author:_this.submitdata.author,
+                    // tags:_this.submitdata.tags,
+                    tags:''
+                }).then(function (response) {
+                    if(response.data.code == 0){
+                        alert(response.data.msg);
+                    }
+                    alert(response.data.msg);
+                    _this.$router.push({name:'contents'})
+                })
             },
             gobackindex(){
                 let confirmstatus = confirm('是否确认要取消编辑并提交??')

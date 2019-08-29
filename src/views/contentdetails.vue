@@ -1,13 +1,13 @@
 <template>
     <div class="contentdetails">
-        <p>内容id :{{$route.params.id}}</p>
+<!--        <p>内容id :{{$route.params.id}}</p>-->
         <div class="contenli">
             <p class="title">{{itemdata.title}}</p>
             <ul class="clearfloat">
                 <li v-for="(item,index) in itemdata.tags" :key="index">{{item}}</li>
             </ul>
             <div class="contentdetails">
-                <div>{{itemdata.contentall}}</div>
+                <div v-html="itemdata.contentall"></div>
             </div>
             <div class="author">by: <span>{{itemdata.author}}</span></div>
         </div>

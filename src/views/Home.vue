@@ -51,7 +51,7 @@
             return{
                 leftstatus:true,
                 lefthidebgnstatus:false,
-                right_toptitle:'你好,站点部分接口有待调试中,可以听一下我收藏的歌曲啊',
+                right_toptitle:'你好,欢迎来到我的个人站',
             }
         },
         methods:{

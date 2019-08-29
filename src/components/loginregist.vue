@@ -51,6 +51,7 @@
         },
         methods:{
             login(){
+                let _this=this;
                 this.axios.post('/blog/public/index.php/login',{
                     email:this.email,
                     password:this.password,
@@ -60,12 +61,12 @@
                         return;
                     }
                     setlocalstorage('checkiflogin',true);
-                    setlocalstorage('settuserdata',{nickname:response.data.nickname});
-
-                    this.$store.dispatch('checkiflogin',true);
-                    this.$store.dispatch('settuserdata',{nickname:response.data.nickname});
-                    this.$store.dispatch('mengbanstatus',false);
-                    this.$store.dispatch('loginregistboxstatus',false);
+                    // setlocalstorage('settuserdata',{nickname:response.data.nickname});
+                    setlocalstorage('settuserdata',{nickname:'已登陆',id:response.data.data.id});
+                    _this.$store.dispatch('checkiflogin',true);
+                    _this.$store.dispatch('settuserdata',{nickname:response.data.nickname});
+                    _this.$store.dispatch('mengbanstatus',false);
+                    _this.$store.dispatch('loginregistboxstatus',false);
                 }).catch(function (response) {
                     console.log(response)
                 })
@@ -83,6 +84,7 @@
                 // }
             },
             regist(){
+                let _this = this;
                 this.axios.post('/blog/public/index.php/register',{
                     email:this.email,
                     verify_code:this.regist_keyword,
@@ -92,12 +94,13 @@
                     debugger;
                     console.log(res)
                     setlocalstorage('checkiflogin',true);
-                    setlocalstorage('settuserdata',{nickname:res.data.nickname});
+                    // setlocalstorage('settuserdata',{nickname:res.data.nickname});
+                    setlocalstorage('settuserdata',{nickname:'已登陆',id:res.data.id});
 
-                    this.$store.dispatch('checkiflogin',true);
-                    this.$store.dispatch('settuserdata',{nickname:res.data.nickname});
-                    this.$store.dispatch('mengbanstatus',false);
-                    this.$store.dispatch('loginregistboxstatus',false);
+                    _this.$store.dispatch('checkiflogin',true);
+                    _this.$store.dispatch('settuserdata',{nickname:'已登陆'});
+                    _this.$store.dispatch('mengbanstatus',false);
+                    _this.$store.dispatch('loginregistboxstatus',false);
                 });
                 // let zhucechenggong = confirm('模拟注册成功?');
                 // if(zhucechenggong){
@@ -113,11 +116,16 @@
             },
             get_keyword(){
                 // todo: 此处的获取验证码还不通,需调试
+                // debugger;
                 this.axios.post('/blog/public/index.php/sendMail',{
                     email:this.regist_email
                 }).then(function (res) {
-                    debugger;
-                    console.log(res);
+                    // debugger;
+                    // if(res.data.code==0){
+                    //     alert(res.data.msg);
+                    //     return;
+                    // }
+                    alert(res.data.msg);
                 })
             }
         },

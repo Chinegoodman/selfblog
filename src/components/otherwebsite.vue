@@ -18,12 +18,12 @@
             return{
                 websitesdata:[
                     {
-                        url:'http://www.bufulaidawo.com',
+                        url:'https://www.bufulaidawo.com',
                         name:'N年前的备份',
                         // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
                     },
                     {
-                        url:'http://www.ooo0o.com/old',
+                        url:'https://www.ooo0o.com/old',
                         name:'ooo0o老版本',
                         // icon:'https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super'
                     },

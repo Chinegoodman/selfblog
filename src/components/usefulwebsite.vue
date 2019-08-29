@@ -20,8 +20,9 @@
         methods:{
             getsetdata(){
                 let _this=this;
-                this.axios.get('/json/usefulwebsite.json').then((data)=>{
-                    _this.websitesdata=data.data.usefulwebsitearr
+                this.axios.get('/blog/public/index.php/webList').then((data)=>{
+                    // debugger;
+                    _this.websitesdata=data.data.data;
                 })
             }
         },
