@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+      <hr>
+      <hr>
       <tags @getnewtagarr="getnewtagarr" :tagsdata="tagsdata"></tags>
       <div class="edit_container">
           <quill-editor
