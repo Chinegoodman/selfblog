@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "core-js": "^2.6.5",
+    "fashion_music_cvs": "^0.0.5",
     "fashionclock": "^1.2.4",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",

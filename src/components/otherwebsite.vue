@@ -8,6 +8,10 @@
             </a>
         </div>
         <div style="clear: both;"></div>
+        <div>
+            <p style="color:#ccc;">©2020 Beijing P.S.F All rights reserved.</p>
+            <a style="color:red;" href="https://beian.miit.gov.cn/" target="_blank">京ICP备17031619号-1</a>
+        </div>
     </div>
 </template>
 
